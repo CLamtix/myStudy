@@ -2,19 +2,18 @@ package xy20170526.arithmeticForSort;
 
 import org.junit.Test;
 
-import util.ISort;
 import util.SortSupport;
 
-public class QuickSort<T extends Comparable<T>> implements ISort<T>{
+public class QuickSort {
 	
-	public void sort(T[] arr) {
+	public void sort(Comparable[] arr) {
 		this.sort(arr, 0, arr.length-1);
 	}
 	
-	private void sort(T[]arr,int low,int high){
+	private void sort(Comparable[]arr,int low,int high){
 		int start = low;
 		int end = high;
-		T key = arr[start];
+		Comparable key = arr[start];
 		while(start<end){
 			while(end>start && arr[end].compareTo(key)>=0){
 				end--;
@@ -35,7 +34,7 @@ public class QuickSort<T extends Comparable<T>> implements ISort<T>{
 	
 	@Test
 	public void test(){
-		T[] strArr = (T[]) SortSupport.getRandomArr(Integer.class, 10);
+		Comparable[] strArr = SortSupport.getRandomArr(Integer.class, 10);
 		sort(strArr);
 		SortSupport.printArr("≈≈–Ú∫Û:",strArr);
 	}

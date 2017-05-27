@@ -2,18 +2,16 @@ package xy20170526.arithmeticForSort;
 
 import org.junit.Test;
 
-import util.ISort;
 import util.SortSupport;
 
-public class InsertSort<T extends Comparable<T>> implements ISort<T> {
+public class InsertSort {
 
-	@Override
-	public void sort(T[] arr) {
-		T temp;
+	public void sort(Comparable[] arr) {
+		Comparable temp;
 		int j;
-		for(int i=0;i<arr.length;i++){
+		for(int i=1;i<arr.length;i++){
 			temp = arr[i];
-			for(j=i;j>0&&temp.compareTo(arr[j-1])>0;j--){
+			for(j=i;j>0&&temp.compareTo(arr[j-1])<0;j--){
 				arr[j] = arr[j-1];
 			}
 			arr[j] = temp;
@@ -21,8 +19,8 @@ public class InsertSort<T extends Comparable<T>> implements ISort<T> {
 	}
 	
 	@Test
-	public void test(){
-		T[] arr = (T[]) SortSupport.getRandomArr(Integer.class, 10);
+	public void tesdfsadt(){
+		Comparable[] arr = SortSupport.getRandomArr(Integer.class, 10);
 		sort(arr);
 		SortSupport.printArr("≈≈–Ú∫Û:", arr);
 	}

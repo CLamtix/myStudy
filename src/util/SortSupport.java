@@ -6,9 +6,8 @@ import java.util.Random;
 public class SortSupport {
 	
 	public static Random rand = new Random();
-	@SuppressWarnings("unchecked")
-	public static Object[] getRandomArr(Class clazz,int size){
-		Object[] arr = null;
+	public static Comparable[] getRandomArr(Class clazz,int size){
+		Comparable[] arr = null;
 		if(clazz.getName().equals("java.lang.String")){
 			arr = new String[size];
 			for(int i=0;i<size;i++){

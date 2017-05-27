@@ -2,16 +2,15 @@ package xy20170526.arithmeticForSort;
 
 import org.junit.Test;
 
-import util.ISort;
 import util.SortSupport;
 
-public class MergeSort<T extends Comparable<T>> implements ISort<T>{
+public class MergeSort {
 	
-	public void sort(T[] arr) {
+	public void sort(Comparable[] arr) {
 		sort(arr,0,arr.length-1);
 	}
 	
-	private void sort(T[] arr, int left, int right) {
+	private void sort(Comparable[] arr, int left, int right) {
 		if(left>=right)
 			return;
 		int center = (left+right)/2;
@@ -21,10 +20,11 @@ public class MergeSort<T extends Comparable<T>> implements ISort<T>{
 	}
 
 
-	private void merge(T[] arr, int left, int center, int right) {
-		T[] temArr = (T[]) new Object[right-left];
+	private void merge(Comparable[] arr, int left, int center, int right) {
+		Comparable[] temArr = (Comparable[]) new Comparable[right-left];
 		int temp = 0;
 		int mid = center+1;
+		int ll = left;
 		while(left<=center && mid<=right){
 			if(arr[left].compareTo(arr[mid])>=0){
 				temArr[temp++] = arr[mid++];
@@ -38,14 +38,14 @@ public class MergeSort<T extends Comparable<T>> implements ISort<T>{
 		while(mid<right){
 			temArr[temp++] = arr[mid++];
 		}
-		System.arraycopy(temArr, 0, arr, left, temArr.length);
+		System.arraycopy(temArr, 0, arr, ll, temArr.length);
 	}
 
 	@Test
 	public void test(){
-		T[] strArr = (T[]) SortSupport.getRandomArr(Integer.class, 10);
+		Comparable[] strArr = SortSupport.getRandomArr(Integer.class, 10);
 		sort(strArr);
 		SortSupport.printArr("ÅÅÐòºó:",strArr);
 	}
-
+	
 }

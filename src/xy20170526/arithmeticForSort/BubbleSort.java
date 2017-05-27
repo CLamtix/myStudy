@@ -1,14 +1,11 @@
 package xy20170526.arithmeticForSort;
 
 import org.junit.Test;
-
-import util.ISort;
 import util.SortSupport;
 
-public class BubbleSort<T extends Comparable<T>> implements ISort<T> {
+public class BubbleSort{
 
-	@Override
-	public void sort(T[] arr) {
+	public void sort(Comparable[] arr) {
 		for(int i=0;i<arr.length-1;i++){
 			for(int j=0;j<arr.length-i-1;j++){
 				if(arr[j].compareTo(arr[j+1])>0){
@@ -20,9 +17,10 @@ public class BubbleSort<T extends Comparable<T>> implements ISort<T> {
 	
 	@Test
 	public void test(){
-		T[] arr = (T[]) SortSupport.getRandomArr(Integer.class, 10);
+		Comparable[] arr = SortSupport.getRandomArr(Integer.class, 10);
 		sort(arr);
 		SortSupport.printArr("≈≈–Ú∫Û:", arr);
 	}
+	
 
 }
