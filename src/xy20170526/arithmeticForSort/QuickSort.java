@@ -34,9 +34,10 @@ public class QuickSort {
 	
 	@Test
 	public void test(){
-		Comparable[] strArr = SortSupport.getRandomArr(Integer.class, 10);
-		sort(strArr);
-		SortSupport.printArr("排序后:",strArr);
+		Comparable[] arr = SortSupport.getRandomArr(Integer.class, 10);
+		sort(arr);
+		SortSupport.printArr("排序后:",arr);
+		System.out.println("检查结果:"+SortSupport.checkSorted(arr, true));
 	}
 
 }

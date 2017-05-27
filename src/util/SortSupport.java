@@ -32,4 +32,20 @@ public class SortSupport {
 		o[index1] = o[index2];
 		o[index2] = temp;
 	}
+	public static boolean checkSorted(Comparable[] o,boolean isIncrement){
+		if(isIncrement){
+			for(int i=0;i<o.length-1;i++){
+				if(o[i+1].compareTo(o[i])<0){
+					return false;
+				}
+			}
+		}else{
+			for(int i=0;i<o.length-1;i++){
+				if(o[i+1].compareTo(o[i])>0){
+					return false;
+				}
+			}
+		}
+		return true;
+	}
 }

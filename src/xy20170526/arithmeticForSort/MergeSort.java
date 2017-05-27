@@ -21,7 +21,7 @@ public class MergeSort {
 
 
 	private void merge(Comparable[] arr, int left, int center, int right) {
-		Comparable[] temArr = (Comparable[]) new Comparable[right-left];
+		Comparable[] temArr = (Comparable[]) new Comparable[right-left+1];
 		int temp = 0;
 		int mid = center+1;
 		int ll = left;
@@ -32,10 +32,10 @@ public class MergeSort {
 				temArr[temp++] = arr[left++];
 			}
 		}
-		while(left<center){
+		while(left<=center){
 			temArr[temp++] = arr[left++];
 		}
-		while(mid<right){
+		while(mid<=right){
 			temArr[temp++] = arr[mid++];
 		}
 		System.arraycopy(temArr, 0, arr, ll, temArr.length);
@@ -43,9 +43,10 @@ public class MergeSort {
 
 	@Test
 	public void test(){
-		Comparable[] strArr = SortSupport.getRandomArr(Integer.class, 10);
-		sort(strArr);
-		SortSupport.printArr("排序后:",strArr);
+		Comparable[] arr = SortSupport.getRandomArr(Integer.class, 10);
+		sort(arr);
+		SortSupport.printArr("排序后:",arr);
+		System.out.println("检查结果:"+SortSupport.checkSorted(arr, true));
 	}
 	
 }

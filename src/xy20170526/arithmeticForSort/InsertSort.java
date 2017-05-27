@@ -19,10 +19,11 @@ public class InsertSort {
 	}
 	
 	@Test
-	public void tesdfsadt(){
+	public void test(){
 		Comparable[] arr = SortSupport.getRandomArr(Integer.class, 10);
 		sort(arr);
 		SortSupport.printArr("排序后:", arr);
+		System.out.println("检查结果:"+SortSupport.checkSorted(arr, true));
 	}
 
 }

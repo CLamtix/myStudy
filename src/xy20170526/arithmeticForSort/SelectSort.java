@@ -9,7 +9,7 @@ public class SelectSort {
 	public void sort(Comparable[] arr) {
 		for(int i=0;i<arr.length;i++){
 			int temp = i;
-			for(int j=i;j<arr.length-1;j++){
+			for(int j=i;j<arr.length;j++){
 				if(arr[j].compareTo(arr[temp])<0){
 					temp = j;
 				}
@@ -25,6 +25,7 @@ public class SelectSort {
 		Comparable[] arr = SortSupport.getRandomArr(Integer.class, 10);
 		sort(arr);
 		SortSupport.printArr("排序后:", arr);
+		System.out.println("检查结果:"+SortSupport.checkSorted(arr, true));
 	}
 
 }
