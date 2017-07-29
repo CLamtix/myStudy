@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.6.0_24">
 		<attributes>
 			<attribute name="owner.project.facets" value="java"/>
 		</attributes>
@@ -20,5 +20,12 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="WebRoot/lib/json-lib-2.2-jdk15.jar"/>
+	<classpathentry kind="lib" path="WebRoot/lib/commons-lang-2.4.jar"/>
+	<classpathentry kind="lib" path="WebRoot/lib/ezmorph-1.0.5.jar"/>
+	<classpathentry kind="lib" path="WebRoot/lib/commons-logging-1.1.jar"/>
+	<classpathentry kind="lib" path="WebRoot/lib/commons-collections.jar"/>
+	<classpathentry kind="lib" path="WebRoot/lib/commons-beanutils-bean-collections.jar"/>
+	<classpathentry kind="lib" path="WebRoot/lib/commons-beanutils.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
