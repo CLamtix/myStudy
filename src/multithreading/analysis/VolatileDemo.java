@@ -8,6 +8,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 import org.junit.Test;
 
+import com.sun.swing.internal.plaf.synth.resources.synth;
+
 public class VolatileDemo {
     public static volatile boolean isStopA = false;
     public static boolean isStopB = false;
@@ -143,7 +145,64 @@ public class VolatileDemo {
     		return a;
     	}
     }
-
+    
+    /**
+     * synchronized作用与静态方法
+     */
+    @Test
+    public void test4(){
+    	for(int i=0;i<5;i++){
+    		new Thread(new Runnable() {
+				public void run() {
+					SynObjStatic.incWithSynFiled();
+				}
+			}).start();
+    	}
+    	while(Thread.activeCount()>2){
+    		Thread.yield();
+    	}
+    	System.out.println(SynObjStatic.get());
+    }
+    static class SynObjStatic{
+    	private static int b = 0;
+    	public static synchronized void incWithSynFiled(){
+    		b++;
+    	}
+    	public static int get(){
+    		return b;
+    	}
+    }
+    
+    /**
+     * synchronized作用与代码块
+     */
+    @Test
+    public void test5(){
+    	final SynAreaObj obj = new SynAreaObj();
+    	for (int i = 0; i < 5; i++) {
+	    	new Thread(new Runnable() {
+				public void run() {
+					obj.inc();
+				}
+			}).start();
+    	}
+    	while(Thread.activeCount()>2){
+    		Thread.yield();
+    	}
+    	System.out.println(obj.get());
+    }
+    static class SynAreaObj{
+    	private Object obj = new Object();
+    	private int c = 0;
+    	public void inc(){
+    		synchronized (obj) {
+    			c++;
+			}
+    	}
+    	public int get(){
+    		return c;
+    	}
+    }
 }
 
 
