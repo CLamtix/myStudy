@@ -32,4 +32,17 @@ public class ThreadLocalTest {
 			Thread.yield();
 		}
 	}
+	
+	static class SerialNum{
+		private static int num;
+		private static ThreadLocal<Integer> tl = new ThreadLocal<Integer>(){
+			@Override
+			protected synchronized Integer initialValue() {
+				return num++;
+			};
+		};
+		public static Integer getSerial(){
+			return tl.get();
+		}
+	}
 }
