@@ -9,6 +9,7 @@ public class PrintObjMessage {
 		Class clazz = null;
 		try {
 			clazz = Class.forName("reflection.User");
+			System.out.println(clazz.getName());
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 			throw new RuntimeException();

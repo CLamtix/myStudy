@@ -3,7 +3,7 @@ package reflection;
 public class User {
 	private String name;
 	private Integer age;
-	private Boolean adult;
+	public Boolean adult;
 	public User() {
 		
 	}
