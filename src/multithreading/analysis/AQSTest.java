@@ -77,4 +77,43 @@ public class AQSTest {
 		}
 		
 	}
+	
+	static Condition con = rtl.newCondition();
+	@Test
+	public void test2() throws InterruptedException{
+		class C implements Runnable {
+			
+			@Override
+			public void run() {
+				rtl.lock();
+				try {
+					con.await();
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				} finally{
+					rtl.unlock();
+				}
+			}
+		}
+		new Thread(new C()).start();
+		new Thread(new C()).start();
+		TimeUnit.SECONDS.sleep(1);
+		rtl.lock();
+		System.out.println(rtl.hasWaiters(con));
+		System.out.println(rtl.getWaitQueueLength(con));
+	}
+	
+	
 }
+
+
+
+
+
+
+
+
+
+
+
+

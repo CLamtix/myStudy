@@ -33,7 +33,7 @@ public class ExchangerTest {
 		}
 		@Override
 		public void run() {
-			for(int i=0;i<9;i++){
+			for(int i=0;i<4;i++){
 				try {
 					commodity = (List<String>) ex.exchange(commodity);
 					for(int j=0;j<commodity.size();j++){
@@ -59,7 +59,7 @@ public class ExchangerTest {
 		}
 		@Override
 		public void run() {
-			for(int i=0;i<9;i++){
+			for(int i=0;i<4;i++){
 				try {
 					commodity = (List<String>) ex.exchange(commodity);
 					for(int j=0;j<commodity.size();j++){
