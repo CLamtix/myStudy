@@ -23,12 +23,11 @@ public class ClassLoaderTest {
 	@Test
 	public void test2(){
 		try {
-			Class classDate = new MyClassLoader("E:\\git\\study\\class_temp").loadClass("ClassLoaderAttachment");
+			Class classDate = new MyClassLoader("F:\\git\\study\\class_temp").loadClass("classLoader.ClassLoaderAttachment");
 			System.out.println(classDate.getClassLoader());
-			System.out.println(ClassLoaderAttachment.class.getClassLoader());
 			Object ca = classDate.newInstance();
-			System.out.println(ca.getClass().getClassLoader().getClass().getName());
-		} catch (Exception e) {
+			System.out.println(ca instanceof ClassLoaderAttachment);
+		} catch (Exception e) { 
 			e.printStackTrace();
 		}
 		

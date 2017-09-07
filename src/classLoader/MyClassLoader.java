@@ -10,6 +10,7 @@ import java.io.OutputStream;
 
 public class MyClassLoader extends ClassLoader{
 	
+	//待加载的类的class文件路径
 	public String classDir;
 	
 	public MyClassLoader() {
@@ -19,6 +20,9 @@ public class MyClassLoader extends ClassLoader{
 	public MyClassLoader(String str){
 		classDir = str;
 	}
+	/**
+	 * @param name 待加载的类名称
+	 */
 	@SuppressWarnings("deprecation")
 	@Override
 	protected Class<?> findClass(String name) throws ClassNotFoundException {
@@ -34,7 +38,12 @@ public class MyClassLoader extends ClassLoader{
 		}
 		return super.findClass(name);
 	}
-
+	/**
+	 * 将读取的二进制字节流加解密 异或处理 
+	 * @param fis
+	 * @param os
+	 * @throws IOException
+	 */
 	public static void encodeAndDecode(InputStream fis, OutputStream os) throws IOException {
 		int b = -1;
 		while((b=fis.read())!=-1){
