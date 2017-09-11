@@ -32,6 +32,11 @@ public class User {
 	public void setAdult(Boolean adult) {
 		this.adult = adult;
 	}
+	private void doSomething(){
+		System.out.println("working someThings");
+	}
 	
-	
+	class User1{
+		
+	}
 }
