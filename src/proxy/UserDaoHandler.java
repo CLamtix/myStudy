@@ -11,7 +11,7 @@ public class UserDaoHandler implements InvocationHandler{
 	private Object realObj;
 	private Object result;
 	public UserDaoHandler() {
-		// TODO Auto-generated constructor stub
+		
 	}
 	public UserDaoHandler(Object obj){
 		this.realObj = obj;
@@ -19,11 +19,12 @@ public class UserDaoHandler implements InvocationHandler{
 	@Override
 	public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
 		System.out.println("调用方法时间:["+Common.df5.format(new Date())+"]");
-		if("findById".equals(method.getName()) || "toString".equals(method.getName())){
-			result = method.invoke(realObj, args);
-		}else{
+		if("deleteById".equals(method.getName())){
 			System.out.println("调用了禁止方法:methodName["+method.getName()+"]");
+			return result;
 		}
+		
+		result = method.invoke(realObj, args);
 		System.out.println("调用方法结束!");
 		return result;
 	}
