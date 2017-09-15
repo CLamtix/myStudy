@@ -3,6 +3,9 @@ package proxy.model;
 public class User {
 	private String id;
 	private String name;
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
 	public User(String name) {
 		// TODO Auto-generated constructor stub
 		this.id = "001";

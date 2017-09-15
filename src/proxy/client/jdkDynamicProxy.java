@@ -1,4 +1,4 @@
-package proxy.service;
+package proxy.client;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -15,18 +15,18 @@ import proxy.dao.IUserDAO;
 import proxy.dao.impl.UserDAOImpl;
 import sun.misc.ProxyGenerator;
 
-public class UserServiceImpl {
+public class jdkDynamicProxy {
 	private static IUserDAO userDao = new UserDAOImpl();
 	public static void main(String[] args) throws Exception {
 		
 		InvocationHandler userDaoHandle = new UserDaoHandler(userDao);
-		IUserDAO userDao = (IUserDAO) Proxy.newProxyInstance(UserServiceImpl.class.getClassLoader(),
+		IUserDAO userDao = (IUserDAO) Proxy.newProxyInstance(UserDAOImpl.class.getClassLoader(),
 															UserDAOImpl.class.getInterfaces(),
 															userDaoHandle);
 //		Object result = userDao.findById("001");
 //		System.out.println(result.toString());
 		
-		Class clazz = Proxy.getProxyClass(UserServiceImpl.class.getClassLoader(), UserDAOImpl.class.getInterfaces());
+		Class clazz = Proxy.getProxyClass(UserDAOImpl.class.getClassLoader(), UserDAOImpl.class.getInterfaces());
 		System.out.println("¥˙¿Ì¿‡ :"+clazz.toString());
 //		IUserDAO userDao1 = (IUserDAO) clazz.getConstructor(InvocationHandler.class).newInstance(userDaoHandle);
 //		Object result = userDao1.deleteById("001");

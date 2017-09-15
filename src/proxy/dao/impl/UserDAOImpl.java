@@ -3,7 +3,7 @@ package proxy.dao.impl;
 import proxy.dao.IUserDAO;
 import proxy.model.User;
 
-public class UserDAOImpl implements IUserDAO {
+public class UserDAOImpl implements IUserDAO{
 
 	public User findById(String id) {
 		User user = null;
@@ -13,7 +13,6 @@ public class UserDAOImpl implements IUserDAO {
 		return user;
 	}
 
-	@Override
 	public String deleteById(String id) {
 		String result = "";
 		if("001".equals(id)){
