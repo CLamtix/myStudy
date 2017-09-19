@@ -27,6 +27,10 @@ public class JavassistClassGenerator extends ClassLoader {
 		
 	}
 	
+	/**
+	 * 
+	 * @throws Exception
+	 */
 	@Test
 	public void loadClass() throws Exception{
 		File file = new File("F:/git/study/class_temp/com/Plan1.class");
