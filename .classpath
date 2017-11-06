@@ -11,6 +11,9 @@
 	<classpathentry kind="lib" path="WebRoot/lib/commons-collections.jar"/>
 	<classpathentry kind="lib" path="WebRoot/lib/commons-beanutils-bean-collections.jar"/>
 	<classpathentry kind="lib" path="WebRoot/lib/commons-beanutils.jar"/>
+	<classpathentry kind="lib" path="WebRoot/lib/asm-5.2.jar" sourcepath="F:/JAVA资料/JAR包/asm/asm-5.2/src.zip"/>
+	<classpathentry kind="lib" path="WebRoot/lib/javassist.jar" sourcepath="F:/JAVA资料/JAR包/javassist/javassist-3.18.0-GA/src"/>
+	<classpathentry kind="lib" path="WebRoot/lib/cglib-nodep-3.2.5.jar" sourcepath="F:/JAVA资料/JAR包/cglib/cglib-RELEASE_3_2_5.zip"/>
 	<classpathentry kind="con" path="com.genuitec.runtime.library/com.genuitec.generic_6.0">
 		<attributes>
 			<attribute name="owner.project.facets" value="jst.web"/>
