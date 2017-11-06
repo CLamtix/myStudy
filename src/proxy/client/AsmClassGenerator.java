@@ -35,7 +35,7 @@ public class AsmClassGenerator extends ClassLoader {
 		
 		byte[] bytes = classWriter.toByteArray();
 		
-		FileOutputStream fos = new FileOutputStream(new File("F:/git/study/class_temp/Plan.class"));
+		FileOutputStream fos = new FileOutputStream(new File("F://Plan.class"));
 		fos.write(bytes);
 		fos.flush();
 		fos.close();
