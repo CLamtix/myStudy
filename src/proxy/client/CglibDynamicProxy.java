@@ -1,6 +1,9 @@
 package proxy.client;
 
+import net.sf.cglib.core.ClassGenerator;
 import net.sf.cglib.core.DebuggingClassWriter;
+import net.sf.cglib.core.DefaultGeneratorStrategy;
+import net.sf.cglib.core.GeneratorStrategy;
 import net.sf.cglib.proxy.Enhancer;
 import proxy.UserDaoIntercepter;
 import proxy.dao.impl.UserDAOImpl;
@@ -8,7 +11,7 @@ import proxy.dao.impl.UserDAOImpl;
 public class CglibDynamicProxy {
 	public static void main(String[] args) {
 		//此代码的意思是将运行过程中创建的代理类持久化到磁盘目标目录
-		System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "F:\\cache");
+//		System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "F:\\cache");
 		
 		//1.创建一个拦截器
 		UserDaoIntercepter userDaoIntercepter = new UserDaoIntercepter();
@@ -18,9 +21,16 @@ public class CglibDynamicProxy {
 		enhancer.setSuperclass(UserDAOImpl.class);
 		//4.设置所对应的拦截器,
 		enhancer.setCallback(userDaoIntercepter);
+//		enhancer.setAttemptLoad(true);
+//		enhancer.setStrategy(new DefaultGeneratorStrategy() {
+//			@Override
+//			protected byte[] transform(byte[] b) throws Exception {
+//				//加入customization-code
+//				return super.transform(b);
+//			}
+//		});
 		//5.创建一个代理类
 		UserDAOImpl userDaoProxy = (UserDAOImpl) enhancer.create();
-		
 		Object obj = userDaoProxy.findById("001");
 		System.out.println(obj);
 
