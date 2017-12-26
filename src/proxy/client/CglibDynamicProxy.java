@@ -8,7 +8,7 @@ import proxy.dao.impl.UserDAOImpl;
 public class CglibDynamicProxy {
 	public static void main(String[] args) {
 		//此代码的意思是将运行过程中创建的代理类持久化到磁盘目标目录
-//		System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "F:\\");
+		System.setProperty(DebuggingClassWriter.DEBUG_LOCATION_PROPERTY, "F:\\cache");
 		
 		//1.创建一个拦截器
 		UserDaoIntercepter userDaoIntercepter = new UserDaoIntercepter();
